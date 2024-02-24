@@ -5,7 +5,7 @@ services: #сервисы
     image: nginx:latest #берем последний образ nginx
     ports: #порт
       - "8080:80"
-    volumes: #содержит то что будет сделано в
+    volumes: #монтируем папку Code
       - ./code:/code #Папка code из текущей папки просто монтируется в папку code
       - ./site.conf:/etc/nginx/conf.d/site.conf #прокидываем конфиг файл
     links: #делаем связть с web Сервиса с php
