@@ -1,0 +1,16 @@
+version: "3.8" #версия докера
+
+services: #сервисы
+  web: #сервис в котором рабоает nginx
+    image: nginx:latest #берем последний образ nginx
+    ports: #порт
+      - "8080:80"
+    volumes: #мо
+      - ./code:/code #Папка code из текущей папки просто монтируется в папку code
+      - ./site.conf:/etc/nginx/conf.d/site.conf #прокидываем конфиг файл
+    links: #делаем связть с web Сервиса с php
+      - php
+  php: #добавляем сервис php
+    image: php:8.3-fpm #добавляем сервис изображение php версии 8.3
+    volumes:
+      - ./code:/code #раздел с папкой code перекидываем в папку code
