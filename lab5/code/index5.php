@@ -37,8 +37,8 @@
 <?php
 $container = 'db';
 $useruser = 'root';
-$password = '1234';
-$database = 'MySQL';
+$password = 'hello';
+$database = 'web';
 $port = 3306;
 
 $My_new_SQL = new mysqli($container, $useruser, $password, $database, $port);
